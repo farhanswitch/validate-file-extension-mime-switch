@@ -1,6 +1,6 @@
 {
   "name": "validate-file-extension-mime-switch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Package to validating file extension, file mime type based on their buffer.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -15,5 +15,12 @@
   "scripts": {
     "ts": "tsc --watch",
     "dev": "nodemon build/test.js"
-  }
+  },
+  "keywords": [
+    "file",
+    "validation",
+    "mime type",
+    "extension",
+    "buffer"
+  ]
 }
