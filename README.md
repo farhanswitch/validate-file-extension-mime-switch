@@ -20,7 +20,7 @@ Package to validating file extension, file mime type based on their buffer.
 
 ```ts
 import { readFileSync } from "fs";
-import ValidateFile from ".";
+import ValidateFile from "validate-file-extension-mime-switch";
 
 console.time("validate");
 const test1 = new ValidateFile()
