@@ -149,4 +149,4 @@ export default [
   "xul",
   "xz",
   "zip",
-];
+] as const;

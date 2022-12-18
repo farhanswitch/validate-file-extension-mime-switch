@@ -1,23 +1,30 @@
 //Local modules
 import supportedExtensions from "./data/supported-extension";
 import file from "./data/file";
-import type { FilesType, ExtensionDataType } from "./interfaces";
+import type {
+  FilesType,
+  ExtensionDataType,
+  ExtensionsType,
+  MimeType,
+} from "./interfaces";
 
 class ValidateFile {
-  private supportedExtensions: Array<string> = supportedExtensions;
+  private supportedExtensions: Array<string> = JSON.parse(
+    JSON.stringify(supportedExtensions)
+  );
   private files: FilesType = file;
   private fileBuffer: ArrayBuffer | never[] = [];
-  private fileExtension: string = "";
-  private fileMimeType: string = "";
+  private fileExtension: ExtensionsType | null = null;
+  private fileMimeType: MimeType | null = null;
 
-  setExtension(extension: string): ValidateFile {
+  setExtension(extension: ExtensionsType): ValidateFile {
     if (this.supportedExtensions.includes(extension)) {
       this.fileExtension = extension;
       return this;
     } else throw new Error(`Extension ${extension} is not supported yet`);
   }
-  setMimeType(mimeType: string): ValidateFile {
-    if (this.fileExtension === "") {
+  setMimeType(mimeType: MimeType): ValidateFile {
+    if (this.fileExtension === null) {
       throw new Error(
         "Please set fileExtension first with method setExtension"
       );
@@ -40,12 +47,12 @@ class ValidateFile {
     if (JSON.stringify(this.fileBuffer) === "[]") {
       throw new Error("Please set fileBuffer first with method setFileBuffer");
     }
-    if (this.fileMimeType === "") {
+    if (this.fileMimeType === null) {
       throw new Error("Please set fileMimeType first with method setMimeType");
     }
-    if (this.files?.[this.fileExtension]) {
+    if (this.files?.[this.fileExtension as unknown as ExtensionsType]) {
       const currentData: ExtensionDataType = this.files[
-        this.fileExtension
+        this.fileExtension as unknown as ExtensionsType
       ] as unknown as ExtensionDataType;
       const { magicNumbers, mimeType } = currentData;
       let isValid: boolean = false;
