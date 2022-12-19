@@ -64,7 +64,15 @@ class ValidateFile {
           )
         );
         const str16Array: Array<string> = [];
-        bufferToValidate.forEach((data) => str16Array.push(data.toString(16)));
+        bufferToValidate.forEach((data) =>
+          str16Array.push(
+            data.toString(16).length === 2
+              ? data.toString(16)
+              : `${"0".repeat(2 - data.toString(16).length)}${data.toString(
+                  16
+                )}`
+          )
+        );
         // console.log(str16Array.join(""));
         if (
           str16Array.join("").toUpperCase() ===
