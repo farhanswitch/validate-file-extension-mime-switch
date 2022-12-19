@@ -45,6 +45,7 @@ const files: FilesType = {
       { offset: "0", value: "D0CF11E0A1B11AE1", length: 8 },
       { offset: "0", value: "DBA52D00", length: 4 },
       { offset: "512", value: "ECA5C100", length: 4 },
+      { offset: "0", value: "504B03041400", length: 6 },
     ],
     mimeType: "application/msword",
   },
@@ -280,6 +281,7 @@ const files: FilesType = {
       { offset: "0", value: "D0CF11E0A1B11AE1", length: 8 },
       { offset: "512", value: "FDFFFFFF04", length: 5 },
       { offset: "512", value: "FDFFFFFF20000000", length: 8 },
+      { offset: "0", value: "504B03041400", length: 6 },
     ],
     mimeType: "application/vnd.ms-excel",
   },
@@ -298,6 +300,7 @@ const files: FilesType = {
       { offset: "512", value: "A0461DF0", length: 4 },
       { offset: "0", value: "D0CF11E0A1B11AE1", length: 8 },
       { offset: "512", value: "FDFFFFFF04", length: 5 },
+      { offset: "0", value: "504B03041400", length: 6 },
     ],
     mimeType: "application/vnd.ms-powerpoint",
   },
@@ -344,7 +347,10 @@ const files: FilesType = {
     mimeType: "application/vnd.oasis.opendocument.text-template",
   },
   pptx: {
-    magicNumbers: [{ offset: "0", value: "504B030414000600", length: 8 }],
+    magicNumbers: [
+      { offset: "0", value: "504B030414000600", length: 8 },
+      { offset: "0", value: "504B03041400", length: 6 },
+    ],
     mimeType:
       "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   },
@@ -357,7 +363,10 @@ const files: FilesType = {
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   },
   docx: {
-    magicNumbers: [{ offset: "0", value: "504B030414000600", length: 8 }],
+    magicNumbers: [
+      { offset: "0", value: "504B030414000600", length: 8 },
+      { offset: "0", value: "504B03041400", length: 6 },
+    ],
     mimeType:
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
   },
