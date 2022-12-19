@@ -4,3 +4,4 @@ yarn.lock
 data/
 build/test.js
 build/test.d.ts
+tsconfig.json

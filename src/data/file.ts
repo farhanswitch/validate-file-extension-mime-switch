@@ -349,7 +349,10 @@ const files: FilesType = {
       "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   },
   xlsx: {
-    magicNumbers: [{ offset: "0", value: "504B030414000600", length: 8 }],
+    magicNumbers: [
+      { offset: "0", value: "504B030414000600", length: 8 },
+      { offset: "0", value: "504B03041400", length: 6 },
+    ],
     mimeType:
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   },
