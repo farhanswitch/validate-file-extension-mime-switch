@@ -47,7 +47,7 @@ class ValidateFile {
     return this;
   }
   @setFileType
-  validate(type?: FileType): Boolean {
+  validate(type?: FileType): boolean {
     if (JSON.stringify(this.fileBuffer) === "[]") {
       throw new Error("Please set fileBuffer first with method setFileBuffer");
     }
