@@ -566,6 +566,10 @@ const files: FilesType = {
     magicNumbers: [{ offset: "0", value: "FFD8", length: 2 }],
     mimeType: "image/jpeg",
   },
+  jif: {
+    magicNumbers: [{ offset: "0", value: "FFD8", length: 2 }],
+    mimeType: "image/jpeg",
+  },
   png: {
     magicNumbers: [{ offset: "0", value: "89504E470D0A1A0A", length: 8 }],
     mimeType: "image/png",
@@ -923,6 +927,14 @@ const files: FilesType = {
   avi: {
     magicNumbers: [{ offset: "0", value: "52494646", length: 4 }],
     mimeType: "video/x-msvideo",
+  },
+  html: {
+    mimeType: "text/html",
+    magicNumbers: [{ offset: "0", value: "", length: 0 }],
+  },
+  json: {
+    mimeType: "application/json",
+    magicNumbers: [{ offset: "0", value: "", length: 0 }],
   },
 };
 

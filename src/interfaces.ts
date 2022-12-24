@@ -18,3 +18,5 @@ export type FilesType = {
 
 export type ExtensionsType = typeof supportedExtension[number];
 export type MimeType = typeof listMimeType[number];
+
+export type FileType = "text" | "binary";

@@ -1,6 +1,6 @@
 {
   "name": "validate-file-extension-mime-switch",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Package to validating file extension, file mime type based on their buffer.",
   "main": "build/index.js",
   "types": "build/index.d.ts",

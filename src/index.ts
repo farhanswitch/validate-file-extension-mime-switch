@@ -1,10 +1,13 @@
 //Local modules
 import supportedExtensions from "./data/supported-extension";
 import file from "./data/file";
+import htmlTagList from "./data/html";
+import { setFileType } from "./decorator";
 import type {
   FilesType,
   ExtensionDataType,
   ExtensionsType,
+  FileType,
   MimeType,
 } from "./interfaces";
 
@@ -43,12 +46,21 @@ class ValidateFile {
     this.fileBuffer = fileBuffer;
     return this;
   }
-  validate(): Boolean {
+  @setFileType
+  validate(type?: FileType): Boolean {
     if (JSON.stringify(this.fileBuffer) === "[]") {
       throw new Error("Please set fileBuffer first with method setFileBuffer");
     }
     if (this.fileMimeType === null) {
       throw new Error("Please set fileMimeType first with method setMimeType");
+    }
+    if (type) {
+      if (type === "text") {
+        if (this.fileExtension?.toLowerCase() === "html")
+          return this.validateHTML();
+        else if (this.fileExtension?.toLowerCase() === "json")
+          return this.validateJSON();
+      }
     }
     if (this.files?.[this.fileExtension as unknown as ExtensionsType]) {
       const currentData: ExtensionDataType = this.files[
@@ -87,6 +99,25 @@ class ValidateFile {
     }
     return false;
   }
+  private validateJSON(): boolean {
+    try {
+      JSON.parse(this.fileBuffer.toString());
+      return true;
+    } catch (err: unknown) {
+      console.log("Error when parsing data to JSON -> ", err);
+      return false;
+    }
+  }
+  private validateHTML(): boolean {
+    for (const tag of htmlTagList) {
+      if (this.fileBuffer.toString().includes(`<${tag}`)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 export default ValidateFile;
+
+export * from "./interfaces";

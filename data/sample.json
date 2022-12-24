@@ -1,0 +1,12 @@
+{
+  "nama": "Stevia",
+  "hobi": ["menyanyi", "membaca"],
+  "tanggalLahir": 19,
+  "bulanLahir": 8,
+  "tahunLahir": 1998,
+  "sekolah": {
+    "sd": "SD Negeri 11 Jakarta",
+    "smp": "SMP Negeri 3 Jakarta",
+    "sma": "SMA Negeri 1 Jakarta"
+  }
+}
