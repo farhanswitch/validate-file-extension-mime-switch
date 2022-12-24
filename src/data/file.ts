@@ -930,11 +930,11 @@ const files: FilesType = {
   },
   html: {
     mimeType: "text/html",
-    magicNumbers: [{ offset: "0", value: "", length: 0 }],
+    magicNumbers: [{ offset: "0", value: "@@", length: 1 }],
   },
   json: {
     mimeType: "application/json",
-    magicNumbers: [{ offset: "0", value: "", length: 0 }],
+    magicNumbers: [{ offset: "0", value: "@@", length: 1 }],
   },
 };
 
