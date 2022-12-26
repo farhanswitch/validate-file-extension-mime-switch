@@ -7,9 +7,9 @@ export const setFileType = (
   _methodName: string,
   descriptor: PropertyDescriptor
 ) => {
-  const originalMethod: any = descriptor.value;
+  const originalMethod: Function = descriptor.value;
 
-  descriptor.value = function (...args: any[]) {
+  descriptor.value = function (...args: string[]) {
     //@ts-ignore
     if (Object.keys(textFileMimeExt).includes(this.fileExtension)) {
       //@ts-ignore
